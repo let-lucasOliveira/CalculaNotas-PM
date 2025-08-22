@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
         averageTV = (TextView) findViewById(R.id.average_txtv);
         statusTV = (TextView) findViewById(R.id.status_txtv);
 
-        calcBtn.setOnClickListener(new View.OnClickListener(){
+        calcBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void OnClick (View view){
+            public void onClick(View view) {
                 double nota1, nota2, media;
                 int faltas;
                 String situacao;
@@ -46,13 +46,16 @@ public class MainActivity extends AppCompatActivity {
                 nota1 = Double.parseDouble(nota1Txt.getText().toString());
                 nota2 = Double.parseDouble(nota2Txt.getText().toString());
                 faltas = Integer.parseInt(faltasTxt.getText().toString());
+                media = (nota1 + nota2) / 2;
+
                 averageTV.setText(String.valueOf(media));
 
-                if (media >= 7 && faltas <= 5){
-                    statusTV.setText("Aprovado");
-                }
-                else {
-                    statusTV.setText("Retido");
+                if (media >= 7 && faltas <= 5) {
+                    situacao = "Aprovado";
+                    statusTV.setText(situacao);
+                }else {
+                    situacao = "Retido";
+                    statusTV.setText(situacao);
                 }
             }
         });
